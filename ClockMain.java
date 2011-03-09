@@ -1,4 +1,3 @@
-package files;
 /*
 Copyright (C) 2010 Olof Nord
 
@@ -11,6 +10,8 @@ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
 You should have received a copy of the GNU General Public License along with this program; 
 if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
+
+package files;
 
 import java.awt.*;
 import javax.swing.*;
@@ -25,17 +26,17 @@ public class ClockMain
 {
 	public static void main(String[] args)
 	{
-		KlockVisare clock = new KlockVisare();
+		DisplayTime clock = new DisplayTime();
 	}
 }
 
-class KlockVisare extends JFrame implements ActionListener
+class DisplayTime extends JFrame implements ActionListener
 {
-	private Tidpunkt tp = new Tidpunkt();
+	private Tick tp = new Tick();
 	private JLabel window1;
-	private static final Color litegrå = new Color(232,232,232);
+	private static final Color almostgrey = new Color(232,232,232);
 	
-	public KlockVisare()
+	public DisplayTime()
 	{
 		javax.swing.Timer tim = new javax.swing.Timer(60000,this);
 		tim.start();
@@ -47,7 +48,7 @@ class KlockVisare extends JFrame implements ActionListener
 		add(window1);
 		
 		//UNDER DEVELOPMENT\\
-		//String fonts[] = {"ett", "två", "tre", "fyra"};
+		//String fonts[] = {"one", "two", "three", "four"};
 		//JComboBox fontList = new JComboBox(fonts);
 		//fontList.setVisible(true);
 		//fontList.setSelectedIndex(4);
@@ -55,7 +56,7 @@ class KlockVisare extends JFrame implements ActionListener
 		//window1.add(fontList);
 		
 		
-		window1.setBackground(litegrå);
+		window1.setBackground(almostgrey);
 		window1.setForeground(LIGHT_GRAY);
 		window1.setFont(new Font("Segoe UI", Font.BOLD , 250));
 		
@@ -67,7 +68,7 @@ class KlockVisare extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		
-		tp.ticka();
+		tp.tick();
 		window1.setText(tp.toString());
 	}
 }
