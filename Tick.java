@@ -15,11 +15,11 @@ package files;
 
 public class Tick
 {
-	private int t,m;
+	private int h,m;
 	
-	public void sätt(int tim, int min)
+	public void set(int hour, int min)
 	{
-		t=tim;
+		h=hour;
 		m=min;
 	}
 	
@@ -30,12 +30,12 @@ public class Tick
 		if(m==60)
 		{
 			m=0;
-			t++;
+			h++;
 		}
 		
-		if(t==24)
+		if(h==24)
 		{
-			t=0;
+			h=0;
 		}
 	}
 	
@@ -43,9 +43,9 @@ public class Tick
 	{
 		if(m>=0 && m<=9)
 		{
-			return t +":0"+m;
+			return h +":0"+m;
 		}
-		return t +":"+m;
+		return h +":"+m;
 	}
 
 }

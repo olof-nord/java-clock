@@ -42,7 +42,7 @@ class DisplayTime extends JFrame implements ActionListener
 		tim.start();
 		Calendar c = getInstance();
 		
-		tp.sätt(c.get(HOUR_OF_DAY), c.get(MINUTE));
+		tp.set(c.get(HOUR_OF_DAY), c.get(MINUTE));
 		
 		window1 = new JLabel(tp.toString(), JLabel.CENTER);
 		add(window1);
