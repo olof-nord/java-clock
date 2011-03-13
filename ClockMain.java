@@ -32,35 +32,30 @@ public class ClockMain
 
 class DisplayTime extends JFrame implements ActionListener
 {
-	private Tick tp = new Tick();
-	private JLabel window1;
+	private Tick nextminute = new Tick();
+	private JLabel clockwindow;
 	private static final Color almostgrey = new Color(232,232,232);
-	
+
 	public DisplayTime()
 	{
 		javax.swing.Timer tim = new javax.swing.Timer(60000,this);
 		tim.start();
 		Calendar c = getInstance();
 		
-		tp.set(c.get(HOUR_OF_DAY), c.get(MINUTE));
+		nextminute.set(c.get(HOUR_OF_DAY), c.get(MINUTE));
 		
-		window1 = new JLabel(tp.toString(), JLabel.CENTER);
-		add(window1);
+		clockwindow = new JLabel(nextminute.toString(), JLabel.CENTER);
+		add(clockwindow);
 		
-		//UNDER DEVELOPMENT\\
-		//String fonts[] = {"one", "two", "three", "four"};
-		//JComboBox fontList = new JComboBox(fonts);
-		//fontList.setVisible(true);
-		//fontList.setSelectedIndex(4);
-        //fontList.addActionListener(this);
-		//window1.add(fontList);
+		clockwindow.setBackground(almostgrey);
+		clockwindow.setForeground(LIGHT_GRAY);
+		clockwindow.setFont(new Font("Segoe UI", Font.BOLD , 250));
 		
+		//setSize(850, 350);
 		
-		window1.setBackground(almostgrey);
-		window1.setForeground(LIGHT_GRAY);
-		window1.setFont(new Font("Segoe UI", Font.BOLD , 250));
+		setExtendedState(Frame.MAXIMIZED_BOTH);
+		//setUndecorated(true);
 		
-		setSize(850, 350);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -68,7 +63,7 @@ class DisplayTime extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		
-		tp.tick();
-		window1.setText(tp.toString());
+		nextminute.tick();
+		clockwindow.setText(nextminute.toString());
 	}
 }
